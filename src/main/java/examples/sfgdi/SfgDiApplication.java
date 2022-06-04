@@ -1,9 +1,6 @@
 package examples.sfgdi;
 
-import examples.sfgdi.controllers.ConstructorInjectedController;
-import examples.sfgdi.controllers.MyController;
-import examples.sfgdi.controllers.PropertyInjectedController;
-import examples.sfgdi.controllers.SetterInjectedController;
+import examples.sfgdi.controllers.*;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -33,6 +30,10 @@ public class SfgDiApplication {
 
         /*Primary Bean*/
         System.out.println(controller.greet());
+
+        /*Profiles*/
+        I18nController i18nController = (I18nController) context.getBean("i18nController");
+        System.out.println(i18nController.greet());
     }
 
 }
