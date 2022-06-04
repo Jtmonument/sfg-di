@@ -1,12 +1,16 @@
 package examples.sfgdi.controllers;
 
-import examples.sfgdi.services.GreetingServiceImpl;
+import examples.sfgdi.services.GreetingService;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Controller;
 
+
+@Controller
 public class ConstructorInjectedController {
 
-    private final GreetingServiceImpl service;
+    private final GreetingService service;
 
-    public ConstructorInjectedController(GreetingServiceImpl service) {
+    public ConstructorInjectedController(@Qualifier("constructorService") GreetingService service) {
         this.service = service;
     }
 
